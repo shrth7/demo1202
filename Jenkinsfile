@@ -44,6 +44,11 @@ pipeline {
 //                 sh 'docker images'
             }
         }
+        stage("Approval to run container"){
+            steps{
+                input "Build and Run Container?"
+            }
+        }
         stage('deploy') {
 //             when{
 //             branch "new_branch"
@@ -51,7 +56,7 @@ pipeline {
             steps{
             retry(3){
                 
-//                 sh 'docker run -d --name container${BUILD_NUMBER} imageagain44:44'
+                sh 'docker run -d --name container${BUILD_NUMBER} imageagain5:5'
                 sh 'docker container ls'
                 }
             }
