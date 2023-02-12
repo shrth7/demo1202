@@ -68,7 +68,7 @@ pipeline {
                 emailext body: '''Hello Sharath,
 
                 As mentioned above the recent build in the pipeline new_pipe was successful
-                ''', subject: 'Build Successful!!', to: 's.sharath2@in.bosch.com'
+                ''', subject: 'Build Successful!!', to: 's.sharath2@in.bosch.com','shrth7777@gmail.com'
             }
             failure{
                 emailext body: '''Hello Sharath,
