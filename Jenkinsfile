@@ -51,7 +51,7 @@ pipeline {
             steps{
             retry(3){
                 
-                sh 'docker run -d --name container${BUILD_NUMBER} imageagain44:44'
+//                 sh 'docker run -d --name container${BUILD_NUMBER} imageagain44:44'
                 sh 'docker container ls'
                 }
             }
