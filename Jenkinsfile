@@ -61,7 +61,9 @@ pipeline {
                 }
             }
         }  
-        post{
+        
+    }
+    post{
             success{
                 emailext body: '''Hello Sharath,
 
@@ -81,5 +83,4 @@ pipeline {
                 ''', subject: 'Build Aborted!!', to: 's.sharath2@in.bosch.com'
             }
         }
-    }
 }
