@@ -37,11 +37,7 @@ pipeline {
                 sh 'docker build -t imageagain${BUILD_NUMBER}:${BUILD_NUMBER} .'
                 sh 'docker images'
 //                 sh 'docker image inspect imageagain:18'
-//                  sh 'docker kill $(docker ps -q)'
-//                 sh 'docker rmi -f $(docker images -q)'
-//                 sh 'docker rm $(docker ps -a -q)'
-//                 sh 'docker container ls'
-//                 sh 'docker images'
+                 
             }
         }
         stage("Approval to run container"){
@@ -69,6 +65,12 @@ pipeline {
 
                 As mentioned above the recent build in the pipeline new_pipe was successful
                 ''', subject: 'Build Successful!!', to: 's.sharath2@in.bosch.com'
+                
+                sh 'docker kill $(docker ps -q)'
+                sh 'docker rmi -f $(docker images -q)'
+                sh 'docker rm $(docker ps -a -q)'
+                sh 'docker container ls'
+                sh 'docker images'
             }
             failure{
                 emailext body: '''Hello Sharath,
