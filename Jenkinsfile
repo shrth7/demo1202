@@ -60,6 +60,26 @@ pipeline {
                 sh 'docker container ls'
                 }
             }
-        }      
+        }  
+        post{
+            success{
+                emailext body: '''Hello Sharath,
+
+                As mentioned above the recent build in the pipeline new_pipe was successful
+                ''', subject: 'Build Successful!!', to: 's.sharath2@in.bosch.com'
+            }
+            failure{
+                emailext body: '''Hello Sharath,
+
+                As mentioned above the recent build in the pipeline new_pipe has failed
+                ''', subject: 'Build FAILED!!', to: 's.sharath2@in.bosch.com'
+            }
+            aborted{
+                emailext body: '''Hello Sharath,
+
+                As mentioned above the recent build in the pipeline new_pipe was aborted
+                ''', subject: 'Build Aborted!!', to: 's.sharath2@in.bosch.com'
+            }
+        }
     }
 }
