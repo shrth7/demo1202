@@ -52,7 +52,7 @@ pipeline {
             steps{
             retry(3){
                 
-                sh 'docker run -d --name container${BUILD_NUMBER} imageagain5:5'
+                sh 'docker run -d --name container${BUILD_NUMBER} imageagain14:14'
                 sh 'docker container ls'
                 }
             }
@@ -66,11 +66,11 @@ pipeline {
                 As mentioned above the recent build in the pipeline new_pipe was successful
                 ''', subject: 'Build Successful!!', to: 's.sharath2@in.bosch.com'
                 
-                sh 'docker kill $(docker ps -q)'
-                sh 'docker rmi -f $(docker images -q)'
-                sh 'docker rm $(docker ps -a -q)'
-                sh 'docker container ls'
-                sh 'docker images'
+//                 sh 'docker kill $(docker ps -q)'
+//                 sh 'docker rmi -f $(docker images -q)'
+//                 sh 'docker rm $(docker ps -a -q)'
+//                 sh 'docker container ls'
+//                 sh 'docker images'
             }
             failure{
                 emailext body: '''Hello Sharath,
