@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'Slave'}
+    agent {label 'SlaveNode'}
     options{
         timestamps ()
         timeout(time: 100, unit: 'SECONDS')
