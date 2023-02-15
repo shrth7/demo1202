@@ -36,7 +36,7 @@ pipeline {
             steps{
                 sh 'docker build -t imageagain${BUILD_NUMBER}:${BUILD_NUMBER} .'
                 sh 'docker images'
-//                 sh 'docker image inspect imageagain:18'
+//                 sh 'docker image inspect httpd:latest'
                  
             }
         }
@@ -52,7 +52,7 @@ pipeline {
             steps{
             retry(3){
                 
-                sh 'docker run -d --name container${BUILD_NUMBER} imageagain14:14'
+                sh 'docker run -d --name container${BUILD_NUMBER} httpd:latest'
                 sh 'docker container ls'
                 }
             }
