@@ -53,7 +53,7 @@ pipeline {
             steps{
             retry(3){
                 
-                sh 'docker run -d --name container${BUILD_NUMBER} httpd:latest'
+                sh 'docker run -d --name container${BUILD_NUMBER} -p 80:80 httpd:latest'
                 sh 'docker container ls'
                 }
             }
